@@ -11,4 +11,23 @@
 // Use your function to create a header
 // and append it to the DOM inside the div.header-container
 
-function Header() {}
+function makeHeader(date, title, temperature) {
+  const headE = make("div", ["header"]);
+  const dateE = make("span", ["date"], date);
+  const titleE = make("h1", [], title);
+  const tempE = make("span", ["temp"], temperature);
+
+  headE.appendChild(dateE);
+  headE.appendChild(titleE);
+  headE.appendChild(tempE);
+
+  return headE;
+}
+
+function addHeader(headerNode) {
+  get(".header-container").appendChild(headerNode);
+}
+
+window.addEventListener("load", () => {
+  addHeader(makeHeader("Date", "Title", "98&deg;"));
+})
