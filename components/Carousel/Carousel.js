@@ -18,14 +18,25 @@
   </div>
 */
 
+// Names of images stored in "./assets/carousel"
 const dataCarousel = [
   "mountains.jpeg",
   "computer.jpeg",
   "trees.jpeg",
   "turntable.jpeg",
 ];
+
+// Index of current carousel image
 let curImg = 0;
-let leftButton, rightButton;
+
+// Time (ms) it takes for carousel to switch pictures
+const carouselTime = 5000;
+
+// Declaring for scope, to grab carousel buttons later
+let leftButton, rightButton
+
+// The interval set on window load and carousel change
+let auto;
 
 function makeCarousel(imgNames) {
   const carousel = make("div", ["carousel"]);
@@ -64,6 +75,15 @@ window.addEventListener("load", () => {
   leftButton = get(".left-button");
   rightButton = get(".right-button");
   getAll(".carousel > img")[curImg].classList.add("show");
-  leftButton.addEventListener("click", carouselLeft);
-  rightButton.addEventListener("click", carouselRight);
+  auto = setInterval(carouselRight, carouselTime)
+  leftButton.addEventListener("click", () => {
+    carouselLeft();
+    clearInterval(auto);
+    auto = setInterval(carouselLeft, carouselTime);
+  });
+  rightButton.addEventListener("click", () => {
+    carouselRight();
+    clearInterval(auto);
+    auto = setInterval(carouselRight, carouselTime);
+  });
 });

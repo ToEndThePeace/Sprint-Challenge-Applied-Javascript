@@ -25,5 +25,5 @@ function makeHeader(date, title, temperature) {
 }
 
 window.addEventListener("load", () => {
-  makeHeader("Date", "Title", "98&deg;");
-})
+  makeHeader("4/10/20", "Lambda Times", "45&deg;");
+});
