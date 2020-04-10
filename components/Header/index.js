@@ -21,13 +21,9 @@ function makeHeader(date, title, temperature) {
   headE.appendChild(titleE);
   headE.appendChild(tempE);
 
-  return headE;
-}
-
-function addHeader(headerNode) {
-  get(".header-container").appendChild(headerNode);
+  get(".header-container").appendChild(headE);
 }
 
 window.addEventListener("load", () => {
-  addHeader(makeHeader("Date", "Title", "98&deg;"));
+  makeHeader("Date", "Title", "98&deg;");
 })
