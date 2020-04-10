@@ -254,11 +254,8 @@ body {
 }
 .carousel {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
   position: relative;
+  height: auto;
   overflow: hidden;
   margin-top: 16px;
 }
@@ -281,6 +278,7 @@ body {
   width: 50px;
   height: 50px;
   cursor: pointer;
+  z-index: 4;
 }
 .carousel .left-button:hover,
 .carousel .right-button:hover {
@@ -300,8 +298,15 @@ body {
 }
 .carousel img {
   width: 100%;
-  display: none;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1s;
 }
 .carousel img.show {
-  display: block;
+  position: relative;
+  opacity: 1;
 }
