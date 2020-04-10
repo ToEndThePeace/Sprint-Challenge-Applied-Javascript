@@ -1,7 +1,6 @@
 .carousel {
   .width-100();
   .flex(center, center);
-  height: 500px;
   position: relative;
   overflow: hidden;
   margin-top: 16px;
@@ -37,5 +36,9 @@
   img {
     .width-100();
     display: none;
+
+    &.show {
+      display: block;
+    }
   }
 }
