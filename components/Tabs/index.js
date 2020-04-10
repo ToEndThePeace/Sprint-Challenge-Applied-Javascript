@@ -11,7 +11,7 @@
 let tabData = [];
 
 /**
- *
+ * Takes an array of tab names and appends them to the DOM
  * @param {string[]} tabNames is an array of tab names from an API
  */
 function makeTabs(tabNames) {
@@ -29,6 +29,6 @@ window.addEventListener("load", () => {
       makeTabs(tabData);
     })
     .catch((err) => {
-      console.log(err);
+      get(".topics").innerHTML += "Unable to Load Topics";
     });
 });
